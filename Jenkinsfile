@@ -17,5 +17,11 @@ pipeline {
                 echo 'All HCL website files are present!'
             }
         }
+
+        stage('Check Docker') {
+            steps {
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" version'
+            }
+        }
     }
 }
