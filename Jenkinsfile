@@ -5,7 +5,6 @@ pipeline {
         stage('Hello HCL') {
             steps {
                 echo 'Hello HCL Computer Coaching!'
-                echo 'Jenkins Pipeline Successfully Running'
             }
         }
 
@@ -21,6 +20,12 @@ pipeline {
         stage('Check Docker') {
             steps {
                 bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" version'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t hcl-website-jenkins:%BUILD_NUMBER% .'
             }
         }
     }
